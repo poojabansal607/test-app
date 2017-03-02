@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-app='app'>
+
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+ 
+
+  <div id="form-container" ng-controller='formController'>
+  <div id="sticky-anchor"></div>
+<div id="sticky">
+
+     
+
+      <div class="page-header text-center">
+         <p align="right">
+         <a  class="btn btn-info btn-sm" ng-click="processForm()">
+          <span class="glyphicon glyphicon-floppy-disk"></span> Save
+        </a>
+      </p> 
+      
+          <h2>Devops Assessment</h2>
+          <div id="rootAreaList"  ng-repeat="name1 in arr">
+          <!-- the links to our nested states using relative paths -->
+          <!-- add the active class if the state matches our ui-sref -->
+         
+       
+      
+         
+          <div id="status-buttons" class="text-center">
+              <a ui-sref-active="active" ui-sref="{{name1.url}}"><span>{{$index+1}}</span> {{name1.name}}</a>
+
+          </div>
+      </div>
+      </div>
+      
+</div>
+      
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form id="signup-form" ng-submit="processForm()">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" ui-view></div>
+      </form>
+ 
+  </div>
+  
+  <!-- show our formData as it is being typed -->
+
+
+</div>
+</div>
+
+
+</body>
+</html>

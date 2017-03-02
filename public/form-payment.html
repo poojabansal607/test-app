@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body  >
+	<div class="form-group">
+		<div ng-controller='formthirdController'>
+		  
+ <div id="category"  ng-repeat="rootArea in Culture">
+ 	<div id="category"  ng-repeat="categories in rootArea ">
+
+
+
+
+
+<h3></h3>
+
+
+
+
+<div class="container">
+						<div class="panel-group" id="accordion">
+							<div class="panel panel-default">
+
+
+								<div class="panel-heading">
+
+
+									<h4 class="panel-title">
+										<a ng-click="counter1=counter1+randomNumber" data-toggle="collapse" data-parent="#accordion"
+											href="{{'#collapse'+$index}}" target="_self">{{categories.name}}</a>
+									</h4>
+
+								</div>
+								<div id="{{'collapse'+$index}}" class="panel-collapse collapse">
+									<div class="panel-body">
+										<div id="category"
+											ng-repeat="subcategory in categories.subCategories ">
+
+
+
+											<div>
+												<div class="panel-group" id="accordion1">
+													<div class="panel panel-default">
+
+
+
+														<div class="panel-heading">
+
+
+															<h4 class="panel-title">
+															
+															<div class="styled-select" id="dropdown">
+ 
+												 <select ng-model="selectedname[subcategory.name]" name="subject[]"
+														ng-options="x  for x in names" ng-click="AddSelectedMaturityLevel(subcategory.name,selectedname[subcategory.name],subcategory.subCategoryKey.id)">
+														<option  value="" ng-disabled="true">- Select Maturity Level -</option>
+														</select>
+														</div>
+														
+																<a data-toggle="collapse" data-parent="#accordion1"
+																	href="{{'#collapsed'+$index+$parent.$index}}" target="_self" ng-click="counter1=counter1+randomNumber"><strong>{{subcategory.name}}</strong></a>
+																
+															</h4>
+
+
+														</div>
+
+														<div id="{{'collapsed'+$index+$parent.$index}}"
+															class="panel-collapse collapse">
+															<div class="panel-body">
+																<!-- <label for="dropdown">Select : Maturity Level</label> -->
+
+																<ul class="nav nav-tabs nav-justified">
+																	<li><a data-toggle="pill" href="#home"
+																		target="_self"
+																		ng-click="myFunc('Regression',subcategory.name,categories.name)">Regressive</a></li>
+																	<li><a data-toggle="pill" href="#menu1"
+																		target="_self"
+																		ng-click="myFunc('Repeatable',subcategory.name,categories.name)">Repeatable</a></li>
+																	<li><a data-toggle="pill" href="#menu2"
+																		target="_self"
+																		ng-click="myFunc('Consistent',subcategory.name,categories.name)">Consistent
+																	</a></li>
+																	<li><a data-toggle="pill" href="#menu3"
+																		target="_self"
+																		ng-click="myFunc('Quantitatively Measured',subcategory.name,categories.name)">Quantitatively
+																			Measured</a></li>
+																	<li><a data-toggle="pill" href="#menu4"
+																		target="_self"
+																		ng-click="myFunc('Optimizing',subcategory.name,categories.name)">Optimizing</a></li>
+																</ul>
+
+
+																<div class="tab-content">
+																	<div id="home" class="tab-pane fade in active">
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name]['Regression']">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					<form>
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}"  ng-model="isChecked">{{question.name}}</label>
+																						</div>
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+
+																	</div>
+
+
+
+
+																	<div id="menu1" class="tab-pane fade in active">
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name]['Repeatable']">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																						</div>
+
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+																	</div>
+
+																	<div id="menu2" class="tab-pane fade in active">
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name]['Consistent']">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					<form>
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																						</div>
+
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+
+																	</div>
+
+																	<div id="menu3" class="tab-pane fade in active">
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name]['Quantitatively Measured']">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					<form>
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																						</div>
+
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+
+																	</div>
+
+																	<div id="menu4" class="tab-pane fade in active">
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name]['Optimizing']">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					<form>
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																						</div>
+
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+
+																	</div>
+																	<div class="styled-select" id="dropdown">
+																		<!--  <button class="dropbtn" ng-click="myFunc(selectedName.name)">Dropdown</button> -->
+																		<!-- <div class="dropdown-content"> -->
+																		<!--  <select ng-model="selectedName.name"
+                                                                                                ng-options="x.value  for x in names"   ng-click="myFunc(selectedName.name.value,subcategory.name,categories.name)">
+                                                                                                <option  value="" ng-disabled="true">- Please Choose -</option>
+                                                                                                </select> -->
+
+																		<!-- </div> -->
+																		<!--   <button
+                                                                                                ng-click="myFunc(selectedName.name,subcategory.name)">Get
+                                                                                                It</button> -->
+
+																		<div id="questions"
+																			ng-repeat="question in Arr[subcategory.name][selectedName.name.value]">
+
+																			<br />
+
+
+																			<div class="container">
+																				<div>
+																					<!--   {{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+                                                <div id="{{'demo'+$index}}" class="collapse"> -->
+																					<form>
+																						<div class="checkbox">
+																							<label><input type="checkbox" ng-checked="question.checked==true"
+																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																						</div>
+
+																					</form>
+																				</div>
+																				<!--  </div> -->
+																			</div>
+
+																		</div>
+																	</div>
+																	<div class="form-group">
+																		<label for="comment">Comment:</label>
+																		<textarea class="form-control" rows="4" id="comment"
+																			ng-model="commentName[subcategory.name]"></textarea>
+																	</div>
+
+																</div>
+															</div>
+
+
+
+															<br />
+														</div>
+
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+
+
+								</div>
+
+							</div>
+
+						</div>
+
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+       
+       
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+											href="{{'#collapse'+$index}}" target="_self">{{categories.name}}</a>
+        </h4>
+        
+       
+      </div>
+      <div id="{{'collapse'+$index}}" class="panel-collapse collapse ">
+        <div class="panel-body">
+       	 <div id="category"  ng-repeat="subcategory in categories.subCategories ">
+       	 <h4><hr><strong>{{subcategory.name}}</strong></h4>
+       	 
+       	 	<label for="dropdown">Select : Maturity Level</label>
+												<div class="styled-select" id="dropdown">
+													 <button class="dropbtn" ng-click="myFunc(selectedName.name)">Dropdown</button>
+													<div class="dropdown-content">
+													<select ng-model="selectedName.name"
+														ng-options="x for x in names" ng-click="myFunc(selectedName.name,subcategory.name,categories.name)">
+														<option value="" disabled="disabled">- Please Choose -</option>
+														</select>
+													</div>
+													<button
+														ng-click="myFunc(selectedName.name,subcategory.name)">Get
+														It</button>
+
+													<div id="questions"
+														ng-repeat="question in Arr[selectedName.name]">
+
+														<br />
+
+
+														<div class="container">
+															<div>
+
+
+
+																	{{$index=$index+1;}}
+                         <a href="{{'#demo'+$index}}" class="btn btn-info" data-toggle="collapse">{{question.maturityRating}}</a>
+  							<div id="{{'demo'+$index}}" class="collapse">
+																<form>
+																	<div class="checkbox">
+																		<label><input type="checkbox"
+																			ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name)"  value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																	</div>
+
+																</form>
+															</div>
+															 </div>
+														</div>
+
+
+
+
+
+													</div>
+												</div>
+       	 	
+	<div class="form-group">
+												<label for="comment">Comment:</label>
+												<textarea class="form-control" rows="4" id="comment" ng-model="commentName[subcategory.name]"></textarea>
+											</div>
+           </div>
+        </div> 
+       </div>
+      
+    </div>
+
+    </div>
+    </div> -->
+</div>
+</div>
+		
+		</div>
+
+<div class="col-xs-6 col-xs-offset-3">
+    <a ui-sref="form.microservices" class="btn btn-block btn-info">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+	</div>
+
+</body>
+</html>
