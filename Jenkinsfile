@@ -1,6 +1,6 @@
 node ("master") {
    stage 'Checkout'
-       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'poojabansal607@gmail.com', url: 'https://del.tools.publicis.sapient.com/bitbucket/scm/cfw/gs-service.git']]])
+       checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'poojabansal607@gmail.com', url: 'https://github.com/poojabansal607/test-app.git']]])
        def mvnHome = tool 'M3'
    		//echo 'Hello World 1'
    stage 'Build'
