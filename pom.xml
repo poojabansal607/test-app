@@ -53,18 +53,16 @@
     </configuration>
 </plugin>
         </plugins>
+		<resources>
+    <resource>
+        <directory>public</directory>
+    </resource>
+    <resource>
+        <directory>static</directory>
+        <targetPath>static</targetPath>
+    </resource>
+</resources> 
     </build>
-	<distributionManagement>
-    <repository>
-        <id>central</id>
-        <name>localhost-releases</name>
-        <url>http://10.207.4.57:8081/artifactory/assess-repo</url>
-    </repository>
-    <snapshotRepository>
-        <id>snapshots</id>
-        <name>localhost-snapshots</name>
-        <url>http://10.207.4.57:8081/artifactory/assess-repo</url>
-    </snapshotRepository>
-</distributionManagement>
+	
 
 </project>

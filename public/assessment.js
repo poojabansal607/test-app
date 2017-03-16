@@ -252,7 +252,7 @@ app
 						console.dir(ObjectFinal);
 						console.dir(finalJsonObjectarray);
 						console.dir("json" + JSON.stringify(objectFinalList));
-						$http.post('http://localhost:8087/assessment/0/save', objectFinalList).then(
+						$http.post('http://10.202.7.250:8087/assessment/0/save', objectFinalList).then(
 								function(response) {
 									if(response.data)
 										{
@@ -261,7 +261,7 @@ app
 										}
 
 								});
-						/*$http.post('http://localhost:8087/assessment/0/save ',
+						/*$http.post('http://10.202.7.250:8087/assessment/0/save ',
 								objectFinalList);
 						console.dir(finalJsonObjectarray);
 						console.dir("processform" + objectFinalList);*/
@@ -324,7 +324,7 @@ app
 					} ];
 					$scope.selectedname={};
 					$http
-							.get('http://localhost:8087/assessment/'+$rootScope.projectidTest)
+							.get('http://10.202.7.250:8087/assessment/'+$rootScope.projectidTest)
 							.then(
 									function(response) {
 										$rootScope.rootArea = response.data;
@@ -419,7 +419,7 @@ app
 
 						$http
 								.get(
-										'http://localhost:8087/Continous Delivery/'
+										'http://10.202.7.250:8087/Continous Delivery/'
 												+ categoryname + '/'
 												+ subcategoryname+'/'+$rootScope.projectidTest)
 								.then(
@@ -1201,7 +1201,7 @@ app
 
 					$http
 							.get(
-									'http://localhost:8087/assessmentByName/Continous Delivery')
+									'http://10.202.7.250:8087/assessmentByName/Continous Delivery')
 							.then(
 									function(response) {
 
@@ -1323,7 +1323,7 @@ app
 					$scope.Infrastructure = {};
 					$http
 							.get(
-									'http://localhost:8087/assessmentByName/Infrastructure On Demand')
+									'http://10.202.7.250:8087/assessmentByName/Infrastructure On Demand')
 							.then(function(response) {
 								$scope.Infrastructure = response.data;
 
@@ -1435,7 +1435,7 @@ app
 					} ];
 
 					$http
-							.get('http://localhost:8087/assessment/0')
+							.get('http://10.202.7.250:8087/assessment/0')
 							.then(
 									function(response) {
 										$scope.rootArea = response.data;
@@ -1510,7 +1510,7 @@ app
 
 						$http
 								.get(
-										'http://localhost:8087/Infrastructure On Demand/'
+										'http://10.202.7.250:8087/Infrastructure On Demand/'
 												+ categoryname + '/'
 												+ subcategoryname+'/'+$rootScope.projectidTest)
 								.then(
@@ -2119,7 +2119,7 @@ app
 				function($rootScope, $scope, $http) {
 
 					$scope.Culture = {};
-					$http.get('http://localhost:8087/assessmentByName/Culture')
+					$http.get('http://10.202.7.250:8087/assessmentByName/Culture')
 							.then(function(response) {
 								$scope.Culture = response.data;
 
@@ -2223,7 +2223,7 @@ app
 					} ];
 
 					$http
-							.get('http://localhost:8087/assessment/0')
+							.get('http://10.202.7.250:8087/assessment/0')
 							.then(
 									function(response) {
 										$scope.rootArea = response.data;
@@ -2298,7 +2298,7 @@ app
 
 						$http
 								.get(
-										'http://localhost:8087/Culture/'
+										'http://10.202.7.250:8087/Culture/'
 												+ categoryname + '/'
 												+ subcategoryname+'/'+$rootScope.projectidTest)
 								.then(
@@ -2963,7 +2963,7 @@ app
 					$scope.Microservices = {};
 					$http
 							.get(
-									'http://localhost:8087/assessmentByName/Micro Services')
+									'http://10.202.7.250:8087/assessmentByName/Micro Services')
 							.then(function(response) {
 								$scope.Microservices = response.data;
 
@@ -3074,7 +3074,7 @@ app
 					} ];
 
 					$http
-							.get('http://localhost:8087/assessment/0')
+							.get('http://10.202.7.250:8087/assessment/0')
 							.then(
 									function(response) {
 										$scope.rootArea = response.data;
@@ -3150,7 +3150,7 @@ app
 
 						$http
 								.get(
-										'http://localhost:8087/Micro Services/'
+										'http://10.202.7.250:8087/Micro Services/'
 												+ categoryname + '/'
 												+ subcategoryname+'/'+$rootScope.projectidTest)
 								.then(
@@ -3729,7 +3729,7 @@ app.controller('loginController', function($rootScope, $scope, $http, $state) {
 		var data = fields;
 		console.log("login" + data);
 		console.dir(data);
-		$http.post('http://localhost:8087/login', data).then(
+		$http.post('http://10.202.7.250:8087/login', data).then(
 				function(response) {
 					$rootScope.projectDetails = response.data;
 					if ($rootScope.projectDetails.Client_name != null) {
@@ -3795,7 +3795,7 @@ app
 
 							if (name.length > 3) {
 								$http
-										.post('http://localhost:8087/register',
+										.post('http://10.202.7.250:8087/register',
 												data)
 										.then(
 												function(response) {
@@ -3828,7 +3828,7 @@ app
 						var data = clientName;
 						$http
 								.post(
-										'http://localhost:8087/register/clientName',
+										'http://10.202.7.250:8087/register/clientName',
 										data)
 								.then(
 										function(response) {
@@ -3849,7 +3849,7 @@ app
 					$scope.submitRegisterForm = function(fields) {
 						var data = fields;
 						console.log(data);
-						$http.post('http://localhost:8087/register/save', data)
+						$http.post('http://10.202.7.250:8087/register/save', data)
 								.then(function(response) {
 									console.log("true" + response.data);
 									if (response.data == "success") {
@@ -3963,7 +3963,7 @@ app
 					$scope.submitNewProjectForm = function(projectObj) {
 
 						console.dir(projectObj);
-						$http.post('http://localhost:8087/login', projectObj);
+						$http.post('http://10.202.7.250:8087/login', projectObj);
 						alert("Added the Project");
 
 					};
@@ -4030,7 +4030,7 @@ app
 					$scope.modifyTestProjectId = function(projectid) {
 						console.dir("projectid" + projectid);
 						$rootScope.projectidTest = projectid;
-						/*$http.get('http://localhost:8087/assessment/'+$rootScope.projectidTest)
+						/*$http.get('http://10.202.7.250:8087/assessment/'+$rootScope.projectidTest)
 						.then(
 								function(response) {
 									console.dir(response.data);
