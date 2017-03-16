@@ -29,12 +29,7 @@
             <version>4.5.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
-<dependency>
-    <groupId>javax.mail</groupId>
-    <artifactId>mail</artifactId>
-    <version>1.4.7</version>
-</dependency>
+    
         
     </dependencies>
 
@@ -46,23 +41,10 @@
     <build>
         <plugins>
             <plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-    <configuration>
-        <executable>true</executable>
-    </configuration>
-</plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
         </plugins>
-		<resources>
-    <resource>
-        <directory>public</directory>
-    </resource>
-    <resource>
-        <directory>static</directory>
-        <targetPath>static</targetPath>
-    </resource>
-</resources> 
     </build>
-	
 
 </project>
