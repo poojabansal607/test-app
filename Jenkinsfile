@@ -16,7 +16,7 @@ stage 'Checkout 2'
 	   //sh "${mvnHome}/bin/mvn clean install"
 	   //step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	   
-Stage 'Copy jar to puppet Master'	
+stage 'puppet Master'	
 	
 	 def var1 = '/var/lib/jenkins/jobs/gs-rest-service-cors/lastSuccessful/archive/target'
 	 def var2 = '/etc/puppetlabs/puppet/deploy_files/gs-service/target'
