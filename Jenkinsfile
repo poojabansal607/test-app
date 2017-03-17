@@ -21,7 +21,7 @@ stage 'Deploy to QA'
 	   echo "connection is made with puppet"
 	   puppet.codeDeploy 'production' 
 	   echo "Code Deployed"
-	   puppet.job 'production'
+	   //puppet.job 'production'
 	   
 stage 'Deploy to PROD'
        input "Ready to deploy to PROD?"	   
