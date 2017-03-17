@@ -14,7 +14,12 @@ stage 'Build'
 	   def workspace = pwd()
        echo "workspace=${workspace}"
 	   
-	   sh "scp /var/lib/jenkins/jobs/gs-rest-service-cors/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target"
+	  // def var1 = /var/lib/jenkins/jobs/gs-rest-service-cors/lastSuccessful/archive/target
+	  // def var2 = /etc/puppetlabs/puppet/deploy_files/gs-service/target
+	   
+	 //  sh "scp $(var1)/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:$(var2) "
+	   
+//sh "scp /var/lib/jenkins/jobs/gs-rest-service-cors/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar //root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target"
 	  
 	  // sh "cp /var/lib/jenkins/jobs/gs-rest-service-cors/builds/lastSuccessfulBuild/archive/target/ /tmp"
 		
