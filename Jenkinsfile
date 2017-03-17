@@ -3,11 +3,11 @@ node ("master") {
 stage 'Checkout'
        
 	   dir('test-app') {
-	     git url: https://github.com/poojabansal607/test-app.git
-	   }
+	     git url: 'https://github.com/poojabansal607/test-app.git' 
+		 }
 	   
 	   dir('control-repo') {
-	     git url: https://github.com/poojabansal607/control-repo.git
+	     git url: 'https://github.com/poojabansal607/control-repo.git'
 	   }
 	
 	   
