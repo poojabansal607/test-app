@@ -2,9 +2,14 @@ node ("master") {
 
 stage 'Checkout'
        
-	step(checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'poojabansal607@gmail.com', url: 'https://github.com/poojabansal607/test-app.git']]]))
+	   dir('test-app') {
+	     git url: https://github.com/poojabansal607/test-app.git
+	   }
+	   
+	   dir('control-repo') {
+	     git url: https://github.com/poojabansal607/control-repo.git
+	   }
 	
-	step(checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'poojabansal607@gmail.com', url: 'https://github.com/poojabansal607/control-repo.git']]]))
 	   
 	def mvnHome = tool 'M3'
    		
