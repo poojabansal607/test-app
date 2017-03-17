@@ -1,18 +1,20 @@
 node ("master") {
 
-stage 'Checkout & Build'
+stage 'Checkout 1' 
        
 	   def mvnHome = tool 'M3'
 	   dir('test-app') {
 	     git url: 'https://github.com/poojabansal607/test-app.git' 
-		 }
+		 
 	   sh "${mvnHome}/bin/mvn clean install"
-	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
+	   
+stage 'Checkout 2'	   
 	   dir('control-repo') {
 	     git url: 'https://github.com/poojabansal607/control-repo.git'
-	   }
+	   
 	   sh "${mvnHome}/bin/mvn clean install"
-	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])
+	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	
 	   
 	//def mvnHome = tool 'M3'
