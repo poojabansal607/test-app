@@ -24,7 +24,13 @@ stage 'puppet Master'
 	 def var1 = '/var/lib/jenkins/jobs/gs-rest-service-cors/lastSuccessful/archive/target'
 	 def var2 = '/etc/puppetlabs/puppet/deploy_files/gs-service/target'
 	   
-	 sh "sshpass -p $password scp ${var1}/gs-rest-service-cors-0.1.0.jar $username@$Ip:${var2}"
+	   
+	sh  "spawn scp -r ${var1}/gs-rest-service-cors-0.1.0.jar $username@$Ip:${var2}"
+    sh  "expect "password:"
+    sh  "send "devop@123\r"
+    sh  "expect "*\r"
+    sh  "expect "\r"
+	// sh "sshpass -p $password scp ${var1}/gs-rest-service-cors-0.1.0.jar $username@$Ip:${var2}"
 	   
 	   
 	  
