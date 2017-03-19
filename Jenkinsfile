@@ -26,7 +26,7 @@ stage 'puppet Master'
 	   
 	   
 	sh  "spawn scp -r ${var1}/gs-rest-service-cors-0.1.0.jar $username@$Ip:${var2}"
-    sh  "expect "password:"
+    sh  "expect password:"
     sh  "send "devop@123\r"
     sh  "expect "*\r"
     sh  "expect "\r"
