@@ -24,6 +24,6 @@ stage 'Deploy Assessment APP'
 	   echo "Code Deployed"	
        
 stage 'Deploy to PROD'
-       sh "sshpass -p devop@123 ssh -o StrictHostKeyChecking=no root@del2vmpldevop03.sapient.com"
+       sh "sshpass -p devop@123 ssh -t root@del2vmpldevop03.sapient.com"
        sh "puppet agent -t"	   
 	}
