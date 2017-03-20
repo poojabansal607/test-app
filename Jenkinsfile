@@ -1,7 +1,7 @@
 node ("master") {
 	
 	
-stage 'Checkout 1' 
+stage 'Checkout' 
        
 	   def mvnHome = tool 'M3'
 	   dir('test-app') {
@@ -10,7 +10,7 @@ stage 'Checkout 1'
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	   
-stage 'Checkout 2'	   
+stage 'Build'	   
 	   dir('control-repo') {
 	   git url: 'https://github.com/poojabansal607/control-repo.git'
 	   
@@ -21,5 +21,9 @@ stage 'Deploy Assessment APP'
        puppet.credentials 'secret'
 	   echo "connection is made with puppet"
 	   puppet.codeDeploy 'production' 
-	   echo "Code Deployed"	   
+	   echo "Code Deployed"	
+       
+stage 'Deploy to PROD'
+       sh "sshpass -p devop@123 ssh -o StrictHostKeyChecking=no root@del2vmpldevop03.sapient.com"
+       sh "puppet agent -t"	   
 	}
