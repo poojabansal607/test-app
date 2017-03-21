@@ -10,7 +10,7 @@ stage 'Checkout'
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	  // Email for build 
 		mail (to: 'pbansal13@sapient.com',
-         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been (${env.BUILD_STATUS})",
+         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been '${env.BUILD_STATUS}'",
          body: "Please go to ${env.BUILD_URL}.");  
 		 echo "email sent"
 	   
@@ -25,7 +25,9 @@ stage 'Checkout'
   //     puppet.credentials 'secret'
 	//   echo "connection is made with puppet"
 	 //  puppet.codeDeploy 'production' 
-	  // echo "Code Deployed"		
+	  // echo "Code Deployed"	
+
+	  
        
 //stage 'Deploy to PROD'
    //    sh "hostname"
