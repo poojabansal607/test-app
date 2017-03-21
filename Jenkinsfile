@@ -9,7 +9,7 @@ stage 'Checkout'
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	  // Email for build 
-		mail (to: 'pbansal@sapient.com',
+		mail (to: 'pbansal13@sapient.com',
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
          body: "Please go to ${env.BUILD_URL}.");  
 		 echo "email sent"
