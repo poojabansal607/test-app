@@ -9,10 +9,9 @@ stage 'Checkout'
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	  // Email for build 
-	    emailext body: '''Hi,
-		Build is successful.
-		Regards,
-		Pooja''', compressLog: true, recipientProviders: [[$class: 'DevelopersRecipientProvider']], subject: 'Build is successful', to: 'pooja.bansal@sapient.com' 	   
+		mail (to: 'pbansal@sapient.com',
+         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
+         body: "Please go to ${env.BUILD_URL}.");  
 	   
 //stage 'Build'	   
 	 //  dir('control-repo') {
