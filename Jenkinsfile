@@ -12,6 +12,7 @@ stage 'Checkout'
 		mail (to: 'pbansal@sapient.com',
          subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) is waiting for input",
          body: "Please go to ${env.BUILD_URL}.");  
+		 echo "email sent"
 	   
 //stage 'Build'	   
 	 //  dir('control-repo') {
