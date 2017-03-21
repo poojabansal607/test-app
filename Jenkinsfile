@@ -10,12 +10,8 @@ stage 'Checkout'
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
 	  // Email for build 
 		mail (to: 'pbansal13@sapient.com',
-         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been build successfully",
-         body: '''Hi,
-		 "Please go to ${env.BUILD_URL}.");  
-	     Build is successful.
-		 Regards,
-		 Pooja'''
+         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been build successfuly build",
+         body: "Please go to ${env.BUILD_URL}.");  
 		 echo "email sent"
 	   
 //stage 'Build'	   
