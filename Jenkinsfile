@@ -15,6 +15,12 @@ stage 'Checkout'
       //   subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been build",
        //  body: "Please go to ${env.BUILD_URL}.");  
 		// echo "email sent"
+		
+		stage 'Deploy to QA'
+       puppet.credentials 'secret'
+	   echo "connection is made with puppet"
+	   puppet.codeDeploy 'production' 
+	   echo "Code Deployed"
 	   
 
 	}
