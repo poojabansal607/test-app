@@ -8,7 +8,7 @@ stage 'Checkout'
 		 
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
-       sh "scp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/test/"
+       
 	   
 	  // Email for build 
 	//	mail (to: 'pbansal13@sapient.com',
