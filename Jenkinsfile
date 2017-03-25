@@ -6,7 +6,7 @@ node ("master") {
 	    echo "connection is made with puppet"
 	    puppet.codeDeploy 'production' 
 	    echo "Code Deployed"
-		//puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
+		puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
 		
 		mail (to: 'pbansal13@sapient.com',
         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully Deployed ON PROD",
