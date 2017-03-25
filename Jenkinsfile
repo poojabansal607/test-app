@@ -8,8 +8,9 @@ stage 'Checkout'
 		 
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
-       sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar /var/gs-service/"
-	   sh "sshpass -p devop@123 scp -r /var/gs-service/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target/"
+	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/test-app/ /var/gs-service/test-app/"
+       sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar /var/gs-service/test-app/target/"
+	   sh "sshpass -p devop@123 scp -r /var/gs-service/test-app/ root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/"
 	   // Email for build 
 		//mail (to: 'pbansal13@sapient.com',
          //subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been build",
@@ -22,8 +23,9 @@ stage 'Build'
 	   
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
-       sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/assessment-1.0-SNAPSHOT.jar /var/assessment/"
-	   sh "sshpass -p devop@123 scp -r /var/assessment/assessment-1.0-SNAPSHOT.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/assessment/target/"
+	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/control-repo /var/assessment/control-repo/"
+       sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/assessment-1.0-SNAPSHOT.jar /var/assessment/control-repo/target/"
+	   sh "sshpass -p devop@123 scp -r /var/assessment/control-repo/ root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/assessment/"
 
 	 
 	  // Email for build 
