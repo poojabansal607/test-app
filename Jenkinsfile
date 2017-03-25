@@ -37,6 +37,11 @@ stage 'Build'
 	    echo "connection is made with puppet"
 	    puppet.codeDeploy 'production' 
 	    echo "Code Deployed"
+		
+		mail (to: 'pbansal13@sapient.com',
+        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully Deployed ON PROD,
+        body: "Please go to ${env.BUILD_URL}.");  
+		echo "email sent"
 	   
 
 	}
