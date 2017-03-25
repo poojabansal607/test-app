@@ -25,20 +25,18 @@ stage 'Build'
        sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/assessment-1.0-SNAPSHOT.jar /var/assessment/"
 	   sh "sshpass -p devop@123 scp -r /var/assessment/assessment-1.0-SNAPSHOT.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/assessment/target/"
 
-	  
-	   //sh "rsync -avzp /var/gs-rest-service-cors-0.1.0.jar -e ssh -oStrictHostKeyChecking=no host  root@del2vmpldevop02.sapient.com:/var/"
-	   //sh "scp /var/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target"
+	 
 	  // Email for build 
-	//	mail (to: 'pbansal13@sapient.com',
-      //   subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been build",
-       //  body: "Please go to ${env.BUILD_URL}.");  
-		// echo "email sent"
+		mail (to: 'pbansal13@sapient.com',
+        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully build",
+        body: "Please go to ${env.BUILD_URL}.");  
+		echo "email sent"
 		
-	//	stage 'Deploy to QA'
-      // puppet.credentials 'secret'
-	   //echo "connection is made with puppet"
-	   //puppet.codeDeploy 'production' 
-	   //echo "Code Deployed"
+		stage 'Deploy to PROD'
+        puppet.credentials 'secret'
+	    echo "connection is made with puppet"
+	    puppet.codeDeploy 'production' 
+	    echo "Code Deployed"
 	   
 
 	}
