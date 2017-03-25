@@ -8,7 +8,7 @@ stage 'Checkout'
 		 
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
-	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/test-app/ /var/gs-service/"
+	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/gs-service/ /var/gs-service/"
 	   
        sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/gs-rest-service-cors-0.1.0.jar /var/gs-service/gs-service/target/"
 	   
@@ -25,7 +25,7 @@ stage 'Build'
 	   
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
-	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/control-repo /var/assessment/"
+	   sh "cp -r /var/lib/jenkins/jobs/test-app-1/workspace/assessment /var/assessment/"
        sh "cp /var/lib/jenkins/jobs/test-app-1/lastSuccessful/archive/target/assessment-1.0-SNAPSHOT.jar /var/assessment/assessment/target/"
 	   sh "sshpass -p devop@123 scp -r /var/assessment/assessment/ root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/"
 
@@ -41,7 +41,7 @@ stage 'Build'
 	    echo "connection is made with puppet"
 	    puppet.codeDeploy 'production' 
 	    echo "Code Deployed"
-		puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
+		//puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
 		
 		mail (to: 'pbansal13@sapient.com',
         subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully Deployed ON PROD",
