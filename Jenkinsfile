@@ -15,7 +15,7 @@ stage 'Checkout'
 	   #rsync -avzp /var/gs-rest-service-cors-0.1.0.jar -e ssh -oStrictHostKeyChecking=no host  root@del2vmpldevop02.sapient.com:/var/
 	   
 	   
-	   scp /var/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target/
+	   #scp /var/gs-rest-service-cors-0.1.0.jar root@del2vmpldevop02.sapient.com:/etc/puppetlabs/puppet/deploy_files/gs-service/target/
        #moar stuff I needed to do
        #like use rvm, which doesn't work with shell, it needs bash.
        '''
