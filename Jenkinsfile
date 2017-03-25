@@ -4,7 +4,7 @@ stage 'Checkout'
        
 	   def mvnHome = tool 'M3'
 	   dir('test-app') {
-	   git url: 'https://github.com/poojabansal607/test-app.git' 
+	   git url: 'https://del.tools.publicis.sapient.com/bitbucket/scm/cfw/gs-service.git' 
 		 
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
@@ -18,7 +18,7 @@ stage 'Checkout'
 	   
 stage 'Build'	   
 	   dir('control-repo') {
-	   git url: 'https://github.com/poojabansal607/control-repo.git'
+	   git url: 'https://del.tools.publicis.sapient.com/bitbucket/scm/cfw/assessment.git'
 	   
 	   sh "${mvnHome}/bin/mvn clean install"
 	   step([$class: 'ArtifactArchiver', artifacts: '**/target/*.jar', fingerprint: true])}
