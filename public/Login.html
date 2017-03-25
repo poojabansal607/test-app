@@ -1,56 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Devops Login</title>
-</head>
-<body>
-<div ng-controller='loginController'>
-           <form method="post" name="myForm" ng-submit="submitMyForm(fields)">
-           <div class="container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-50 col-md-20 col-lg-offset-78 col-lg-45">
-            <br />
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                
-                   <center> <h1>Devops  Assessment <br>Login</br></h1></center>
-                </div>
-                <div class="panel-body">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-user" style="width: auto"></i>
-                            </span>
-                            <input id="txtUsuario" ng-model="fields.name" type="text" class="form-control" name="user" placeholder="Enter UserName" required="" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="glyphicon glyphicon-lock" style="width: auto"></i>
-                            </span>
-                            <input id="txtSenha" ng-model="fields.password" type="password" class="form-control" name="password" placeholder="password" required="" />
-                        </div>
-                    </div>
-                    
-                    
-                
-                    
-                    
-                      <p class="help-block" style="float: left; ">
-          <a class="text-muted" ui-sref="forgotPassword" ><small>Forgot Password</small></a>
-        </p>
-        
-                     <p class="help-block" style="float: right;">
-          <a class="text-muted" ui-sref="register" ><small>Register</small></a>
-        </p>
-                     <button id="btnLogin"  class="btn btn-block btn-info" style="width: 100%" >
-                        Login<i class="glyphicon glyphicon-log-in"></i>
-                    </button>
-                    
-                </div>
-            </div>
-        </div>
-        </form>
-        </div>
-</body>
-</html>
+<div ng-controller='loginController'
+	class="register-container col-md-4 col-md-offset-4">
+	<div class="title-logo-container">
+		<span> <a ui-sref="login"><img
+				src="/assets/img/logo-96x96.png" alt="logo"
+				class="img-rounded logo-img login-box-logo"></a>
+		</span> <span class="title"> <b>DevOps</b> Assessment
+		</span> <br /> <span><small>Sign in using your registered
+				account</small> </span>
+	</div>
+	<hr />
+	<div class="auth-box">
+		<form method="post" name="myForm" ng-submit="submitMyForm(fields)">
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon input-group-standard"> <i
+						class="glyphicon glyphicon-user" style="width: auto"></i>
+					</span> <input id="txtUsuario" ng-model="fields.name" type="text"
+						class="form-control" name="user" placeholder="Username" required />
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon input-group-standard"> <i
+						class="glyphicon glyphicon-lock" style="width: auto"></i>
+					</span> <input id="txtSenha" ng-model="fields.password" type="password"
+						class="form-control" name="password" placeholder="Password"
+						required />
+				</div>
+			</div>
+			<div class="box-footer">
+				<button id="btnLogin" class="btn btn-block btn-publicis">Log
+					in</button>
+				<div class="login-separator">
+					<span class="white-text">or</span>
+				</div>
+				<p>
+					<a class="btn btn-info" ui-sref="register">Create New Account</a>
+				</p>
+				<p>
+					<a ui-sref="forgotPassword" class="standard-link"><small>Forgot
+							your password?</small></a>
+				</p>
+			</div>
+		</form>
+	</div>
+</div>

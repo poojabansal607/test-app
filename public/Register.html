@@ -1,111 +1,106 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Devops Register</title>
-</head>
-<body>
-	<div ng-controller='registerController'>
-		<form method="post" name="myRegisterForm"  ng-submit="submitRegisterForm(fields)">
-			<div
-				class="container col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-50 col-md-20 col-lg-offset-78 col-lg-45">
-				<br />
-				<div class="panel panel-default">
-					<div class="panel-heading">
-
-						<center>
-							<h1>
-								Devops Assessment <br>Register</br>
-							</h1>
-						</center>
+<div ng-controller='registerController'
+	class="register-container col-md-4 col-md-offset-4">
+	<div class="title-logo-container">
+		<span> <img src="/assets/img/logo-96x96.png" alt="logo"
+			class="img-rounded logo-img login-box-logo">
+		</span> <span class="title"> <b>DevOps</b> Assessment
+		</span> <br /> <span><small>Create an account</small> </span>
+	</div>
+	<hr />
+	<div class="auth-box text-left">
+		<form autocomplete="off" method="post" name="myRegisterForm"
+			ng-submit="submitRegisterForm(fields)">
+			<div class="form-group has-feedback">
+				<div class="input-group required">
+					<span class="input-group-addon input-group-standard"> <i
+						class="glyphicon glyphicon-user" style="width: auto"></i>
+					</span> <input id="clientName" ng-model="fields.clientName"
+						ng-keyup="checkclientname(fields.clientName)" type="text"
+						class="form-control" name="clientName" placeholder="Client name"
+						ng-required=true />
+				</div>
+				<!-- <div ng-switch="isClientNameAvailable">
+					<div ng-switch-when="true">
+						<span
+							class="glyphicon glyphicon-ok form-control-feedback text-success"
+							aria-hidden="true"></span> <span id="inputGroupSuccess1Status"
+							class="sr-only">(success)</span>
 					</div>
-					<div class="panel-body">
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"> <i
-									class="glyphicon glyphicon-user" style="width: auto"></i>
-								</span> <input id="clientName" ng-model="fields.Client_name"
-									ng-keyup="checkclientname(fields.clientName)" type="text"
-									class="form-control" name="clientName"
-									placeholder="Enter Client Name" required="" />
-							</div>
-							
-								<span  style="color: red;position: relative; left: 45px;" ng-show="myRegisterForm.clientName.$error.required">ClientName
-									is required</span>
-							
-							<div id="status1"
+					<div ng-switch-when="false">
+						<span
+							class="glyphicon glyphicon-remove form-control-feedback text-danger"
+							aria-hidden="true"></span> <span id="inputError2Status"
+							class="sr-only">(error)</span>
+					</div>
+				</div> -->
+				<div id="status1"
 								style="color: red; position: relative; left: 45px;"></div>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"> <i
-									class="glyphicon glyphicon-lock" style="width: auto"></i>
-								</span> <input id="UserName" ng-model="fields.Username"
-									ng-pattern="/^[a-zA-Z0-9]{4,15}$/"
-									ng-keyup="checkusername(fields.username)" type="text"
-									class="form-control" name="username"
-									placeholder="Enter userName" required="" />
-							</div>
-							<!-- <span style="color: red; position: relative; left: 45px;"
-								ng-show="myRegisterForm.username.$dirty && myRegisterForm.username.$invalid">yuay
-								</span>
-								<br> -->
-								<span style="color: red; position: relative; left: 45px;" ng-show="myRegisterForm.username.$error.required">Username
-									is required</span>
-							
-							<div id="status"
+			</div>
+			<div class="form-group has-feedback">
+				<div class="input-group required">
+					<span class="input-group-addon input-group-standard"> <i
+						class="glyphicon glyphicon-user" style="width: auto"></i>
+					</span> <input id="UserName" autocomplete="off" ng-model="fields.username"
+						ng-pattern="/^[a-zA-Z0-9]{3,15}$/"
+						ng-keyup="checkusername(fields.username)" type="text"
+						class="form-control" name="username" placeholder="Username"
+						ng-required=true />
+				</div>
+				<div id="status"
 								style="color: red; position: relative; left: 45px;"></div>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"> <i
-									class="glyphicon glyphicon-lock" style="width: auto"></i>
-								</span> <input id="password" ng-model="fields.Password" type="password"
-									class="form-control" ng-pattern="/^[a-zA-Z0-9._@%?]{8,}$/" name="password" placeholder="password"
-									required="" />
-							</div>
-							<span style="color: red; position: relative; left: 45px;"
-								ng-show="myRegisterForm.password.$dirty && myRegisterForm.password.$invalid">
-								Password(lowercase,uppercase,numeric(0,9),special characters(._@%?)),Minimum length-8
-								</span>
-								<div style="color: red;position: relative; left: 45px;" ng-show="myRegisterForm.password.$error.required">Password
-									is required</div>
-							
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"> <i
-									class="glyphicon glyphicon-lock" style="width: auto"></i>
-								</span> <input id="email" ng-model="fields.Email" type="email"
-									class="form-control" name="email" placeholder="Enter email id"
-									required="" /> <span style="color: red;"
-									ng-show="myRegisterForm.email.$error.required">Email is
-									required.</span> <span
-									style="color: red;"
-									ng-show="myRegisterForm.email.$error.email">Invalid
-									email address.</span> </span>
-							</div>
-						</div>
-						<button type="submit" class="btn btn-block btn-info"
-							style="width: 100%"
-							ng-disabled="myRegisterForm.$invalid">
-							Register<i class="glyphicon glyphicon-log-in"></i>
-						</button>
-						<!-- "myRegisterForm.clientName.$dirty && myRegisterForm.clientName.$invalid ||
+				<!-- <div ng-switch="isUsernameAvailable">
+					<div ng-switch-when="true">
+						<span
+							class="glyphicon glyphicon-ok form-control-feedback text-success"
+							aria-hidden="true"></span> <span id="inputGroupSuccess1Status"
+							class="sr-only">(success)</span>
+					</div>
+					<div ng-switch-when="false">
+						<span
+							class="glyphicon glyphicon-remove form-control-feedback text-danger"
+							aria-hidden="true"></span> <span id="inputError2Status"
+							class="sr-only">(error)</span>
+					</div>
+				</div> -->
+				<!-- <div id="status" class="input-group-error text-danger"></div> -->
+			</div>
+			<div class="form-group">
+				<div class="input-group required">
+					<span class="input-group-addon input-group-standard"> <i
+						class="glyphicon glyphicon-lock" style="width: auto"></i>
+					</span> <input id="password" autocomplete="off" ng-model="fields.Password"
+						type="password" class="form-control"
+						 ng-pattern="/^(?=(.*\d){1,})(?=.*[a-z])(?=.*[A-Z])(?=.*[_!@#$%])[0-9a-zA-Z!@#$%]{8,}/"
+						  name="password" placeholder="Password" ng-required=true />
+				</div>
+				<span class="input-group-error text-danger"
+					ng-show="myRegisterForm.password.$dirty && myRegisterForm.password.$invalid">
+					Password must contain atleast 1 lowercase, 1 uppercase, 1 numeric(0-9) and 1 special characters
+								<br>(_ @ % $ # !) and Minimum length should be 8</span> 
+			</div>
+			<div class="form-group">
+				<div class="input-group required">
+					<span class="input-group-addon input-group-standard">@
+					</span> <input id="email" ng-model="fields.Email" type="email"
+						class="form-control" name="email" placeholder="abc@xyz.com"
+						ng-focus="checkemail(fields.Email)"	ng-required=true  />
+				</div>
+				<div id="status2"
+								style="color: red; position: relative; left: 45px;"></div>
+			</div>
+			<!--  <button type="submit" id="btnRegister"  class="btn btn-block btn-info" style="width: 100%" >
+                        Register<i class="glyphicon glyphicon-log-in"></i>
+                    </button> -->
+			<p class="text-center">
+				<button type="submit" class="btn btn-publicis"
+					ng-disabled="myRegisterForm.$invalid">Register</button>
+				<!-- "myRegisterForm.clientName.$dirty && myRegisterForm.clientName.$invalid ||
 							myRegisterForm.email.$dirty && myRegisterForm.email.$invalid ||
 							myRegisterForm.password.$dirty && myRegisterForm.password.$invalid ||
 							myRegisterForm.username.$dirty && myRegisterForm.username.$invalid && myRegisterForm.username.$error.required
 							" -->
-
-						<a ui-sref="login" class="btn btn-link">Cancel</a>
-						<!--  <button type="submit" id="btnRegister"  class="btn btn-block btn-info" style="width: 100%" >
-                        Register<i class="glyphicon glyphicon-log-in"></i>
-                    </button> -->
-
-					</div>
-				</div>
-			</div>
+				<a ui-sref="login" class="btn btn-link standard-link">Cancel</a>
+			</p>
 		</form>
 	</div>
-</body>
-</html>
+</div>

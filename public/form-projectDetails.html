@@ -1,21 +1,10 @@
 <div ng-controller='projectDetailsController'>
 	<div class="form-group row">
 		<!-- <div data-spy="scroll" data-target=".navbar" data-offset="50"> -->
-
-
-
 		<div class="container ">
 			<!-- col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-50 col-md-20 col-lg-offset-78 col-lg-45 -->
 			<br />
 			<div class="panel panel-default">
-				<div class="panel-heading">
-
-					<center>
-						<h2>
-							Welcome</br>
-						</h2>
-					</center>
-				</div>
 				<div class="panel-body">
 					<div class="form-group">
 						<h2>Dash Board</h2>
@@ -32,6 +21,8 @@
 
 						<div class="tab-content">
 							<div id="home" class="tab-pane fade in active">
+								<h3>Client Details</h3>
+								<br>
 								<div ng-repeat="n in clientDetails">
 									<h4>Client ID: {{n.Client_id}}</h4>
 
@@ -47,6 +38,7 @@
 									<br />
 									<h4>Email Id: {{n.Email}}</h4>
 								</div>
+
 							</div>
 							<div id="menu1" class="tab-pane fade">
 
@@ -76,312 +68,333 @@
 										<div class="tab-content">
 
 											<div id="Home" class="tab-pane fade in active">
-												<br>
-												<H3>*Please Fill all The
-													Fields{{fields.applicationName}}{{fields.businessVertical}}{{fields.releaseFrequency}}</H3>
-												<br>
+												<br />
+												<H3>
+													<center>*Please fill the required Fields(*)</center>
+												</H3>
+												<br />
 												<h4>
-													<strong>Application Name: </strong> <input type="text"
-														ng-model="fields.applicationName"
-														style="color: black; text-align: center;" required=""></input>
+													<center>
+														<strong>* Application Name: </strong> <input type="text"
+															ng-model="fields.applicationName" ng-required=true></input>
+													</center>
 												</h4>
 												<h4>
-													<strong>Business Vertical: </strong> <input type="text"
-														ng-model="fields.businessVertical"
-														style="color: black; text-align: center;" required=""></input>
+													<center>
+														<strong>  Business Vertical: </strong> <input type="text"
+															ng-model="fields.businessVertical" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</center>
 												</h4>
 												<h4>
-													<strong>Release Frequency (GO LIVE): </strong> <input
-														type="text" ng-model="fields.releaseFrequency"
-														style="color: black; text-align: center; display: inline-block"
-														required=""></input>
+													<center>
+														<strong>  Release Frequency (GO LIVE): </strong> <input
+															type="text" ng-model="fields.releaseFrequency" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+
+													</center>
 												</h4>
+
 											</div>
 
 
 											<div id="Team" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>Application Owner: </strong> <input type="text"
-														ng-model="fields.applicationOwner"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Team Lead: </strong> <input type="text"
-														ng-model="fields.teamLead"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Tech Lead: </strong> <input type="text"
-														ng-model="fields.techLead"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>QA Lead: </strong> <input type="text"
-														ng-model="fields.qaLead"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Build and Release Lead: </strong> <input
-														type="text" ng-model="fields.buildAndReleaseLoad"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Infra Lead: </strong> <input type="text"
-														ng-model="fields.infraLead"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
+												<center>
+													<br>
+													<h4>
+														<strong>Application Owner: </strong> <input type="text"
+															ng-model="fields.applicationOwner" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Team Lead: </strong> <input type="text"
+															ng-model="fields.teamLead" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Tech Lead: </strong> <input type="text"
+															ng-model="fields.techLead" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>QA Lead: </strong> <input type="text"
+															ng-model="fields.qaLead" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Build and Release Lead: </strong> <input
+															type="text" ng-model="fields.buildAndReleaseLoad" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Infra Lead: </strong> <input type="text"
+															ng-model="fields.infraLead" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+												</center>
 											</div>
 
 
 											<div id="DevTeamSize" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>India: </strong> <input type="text"
-														ng-model="fields.devindia"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>UK: </strong> <input type="text"
-														ng-model="fields.devuk"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Others: </strong> <input type="text"
-														ng-model="fields.devothers"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-
+												<center>
+													<br>
+													<h4>
+														<strong>India: </strong> <input type="text"
+															ng-model="fields.devindia" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>UK: </strong> <input type="text"
+															ng-model="fields.devuk" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Others: </strong> <input type="text"
+															ng-model="fields.devothers" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+												</center>
 											</div>
 											<div id="QATeamSize" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>India: </strong> <input type="text"
-														ng-model="fields.qaindia"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>UK: </strong> <input type="text"
-														ng-model="fields.qauk"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Others: </strong> <input type="text"
-														ng-model="fields.qaothers"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-
+												<center>
+													<br>
+													<h4>
+														<strong>India: </strong> <input type="text"
+															ng-model="fields.qaindia" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>UK: </strong> <input type="text"
+															ng-model="fields.qauk" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Others: </strong> <input type="text"
+															ng-model="fields.qaothers" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+												</center>
 											</div>
 											<div id="TechStack" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>Presentation Tier: </strong> <input type="text"
-														ng-model="fields.presentationTier"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Middle Tier: </strong> <input type="text"
-														ng-model="fields.MiddleTier"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Data Tier: </strong> <input type="text"
-														ng-model="fields.dataTier"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>Integration Tier: </strong> <input type="text"
-														ng-model="fields.integrationTier"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-
+												<center>
+													<br>
+													<h4>
+														<strong>Presentation Tier: </strong> <input type="text"
+															ng-model="fields.presentationTier" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Middle Tier: </strong> <input type="text"
+															ng-model="fields.MiddleTier" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Data Tier: </strong> <input type="text"
+															ng-model="fields.dataTier" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>Integration Tier: </strong> <input type="text"
+															ng-model="fields.integrationTier" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+												</center>
 											</div>
 											<div id="EnvironmentsPlatform" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>Development: </strong> <input type="text"
-														ng-model="fields.EPdevelopment"
-														style="color: black; text-align: center;"  required=""></input>
-												</h4>
-												<h4>
-													<strong>QA: </strong> <input type="text"
-														ng-model="fields.EPqa"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>NFR testing (if any): </strong> <input type="text"
-														ng-model="fields.EPnfrTesting"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>UAT: </strong> <input type="text"
-														ng-model="fields.EPuat"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Production: </strong> <input type="text"
-														ng-model="fields.EPproduction"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>DR: </strong> <input type="text"
-														ng-model="fields.EPdr"
-														style="color: black; text-align: center;" required=""></input>
+												<center>
+													<br>
+													<h4>
+														<strong>Development: </strong> <input type="text"
+															ng-model="fields.EPdevelopment" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>QA: </strong> <input type="text"
+															ng-model="fields.EPqa" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>NFR testing (if any): </strong> <input type="text"
+															ng-model="fields.EPnfrTesting" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>UAT: </strong> <input type="text"
+															ng-model="fields.EPuat" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Production: </strong> <input type="text"
+															ng-model="fields.EPproduction" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>DR: </strong> <input type="text"
+															ng-model="fields.EPdr" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
 
-												</h4>
-
+													</h4>
+												</center>
 											</div>
 											<div id="Hardware" class="tab-pane fade">
 												<br>
-												<H3>*Please Fill all The Fields</H3>
-												<br>
-												<h4>
-													<strong>Development: </strong> <input type="text"
-														ng-model="fields.Hdevelopment"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>QA: </strong> <input type="text"
-														ng-model="fields.Hqa"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>NFR testing (if any): </strong> <input type="text"
-														ng-model="fields.HnfrTesting"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>UAT: </strong> <input type="text"
-														ng-model="fields.Huat"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Production: </strong> <input type="text"
-														ng-model="fields.Hproduction"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>DR: </strong> <input type="text"
-														ng-model="fields.Hdr"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
+												<center>
+													<br>
+													<h4>
+														<strong>Development: </strong> <input type="text"
+															ng-model="fields.Hdevelopment" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>QA: </strong> <input type="text"
+															ng-model="fields.Hqa" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>NFR testing (if any): </strong> <input type="text"
+															ng-model="fields.HnfrTesting" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>UAT: </strong> <input type="text"
+															ng-model="fields.Huat" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Production: </strong> <input type="text"
+															ng-model="fields.Hproduction" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>DR: </strong> <input type="text"
+															ng-model="fields.Hdr" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
 
-
+												</center>
 											</div>
 											<div id="Tools" class="tab-pane fade">
 
 												<br>
-
-												<h4>
-													<strong>IDE: </strong> <input type="text"
-														ng-model="fields.ide"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Build: </strong> <input type="text"
-														ng-model="fields.build"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Code Repository: </strong> <input type="text"
-														ng-model="fields.codeRepository"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>Continuous Integration: </strong> <input
-														type="text" ng-model="fields.continuousIntegration"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Code Quality Management: </strong> <input
-														ng-model="fields.codeQualityManagement" type="text"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Unit Testing: </strong> <input type="text"
-														ng-model="fields.unitTesting"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
+												<center>
 												<br>
+													<h4>
+														<strong>IDE: </strong> <input type="text"
+															ng-model="fields.ide" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Build: </strong> <input type="text"
+															ng-model="fields.build" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Code Repository: </strong> <input type="text"
+															ng-model="fields.codeRepository" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>Continuous Integration: </strong> <input
+															type="text" ng-model="fields.continuousIntegration" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Code Quality Management: </strong> <input
+															ng-model="fields.codeQualityManagement" type="text" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Unit Testing: </strong> <input type="text"
+															ng-model="fields.unitTesting" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
 
-												<h4>
-													<strong>Integration Testing: </strong> <input type="text"
-														ng-model="fields.integartionTesting"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Automated Testing: </strong> <input type="text"
-														ng-model="fields.automatedTesting"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Performance Testing: </strong> <input type="text"
-														ng-model="fields.performanceTesting"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>Security Testing: </strong> <input type="text"
-														ng-model="fields.securityTesting"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Other NFR Testing: </strong> <input type="text"
-														ng-model="fields.otherNfrTesting"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Deployment: </strong> <input type="text"
-														ng-model="fields.deployment"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<br>
 
-												<h4>
-													<strong>Environment Provisioning: </strong> <input
-														ng-model="fields.environmentProvisioning" type="text"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Artificat repository: </strong> <input type="text"
-														ng-model="fields.artificatRepository"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Logger: </strong> <input type="text"
-														ng-model="fields.logger"
-														style="color: black; text-align: center; display: inline-block" required=""></input>
-												</h4>
-												<h4>
-													<strong>Log Monitoring: </strong> <input type="text"
-														ng-model="fields.logMonitoring"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Infrastructure Monitoring: </strong> <input
-														ng-model="fields.infrastructureMonitoring" type="text"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
-												<h4>
-													<strong>Application Monitoring: </strong> <input
-														type="text" ng-model="fields.applicationMonitoring"
-														style="color: black; text-align: center;" required=""></input>
-												</h4>
+													<h4>
+														<strong>Integration Testing: </strong> <input type="text"
+															ng-model="fields.integartionTesting" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Automated Testing: </strong> <input type="text"
+															ng-model="fields.automatedTesting" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Performance Testing: </strong> <input type="text"
+															ng-model="fields.performanceTesting" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>Security Testing: </strong> <input type="text"
+															ng-model="fields.securityTesting" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Other NFR Testing: </strong> <input type="text"
+															ng-model="fields.otherNfrTesting" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+													<h4>
+														<strong>Deployment: </strong> <input type="text"
+															ng-model="fields.deployment" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
 
-												<button type="submit" class="btn btn-block btn-info"
-													style="width: 100%" ng-disabled="myAddProjectForm.$invalid">
-													Add Project<i class="glyphicon glyphicon-log-in"></i>
-												</button>
 
+													<h4>
+														<strong>Environment Provisioning: </strong> <input
+															ng-model="fields.environmentProvisioning" type="text"
+															placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Artificat repository: </strong> <input type="text"
+															ng-model="fields.artificatRepository" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Logger: </strong> <input type="text"
+															ng-model="fields.logger" placeholder="N/A"
+															style="color: black; text-align: center; display: inline-block"
+															></input>
+													</h4>
+													<h4>
+														<strong>Log Monitoring: </strong> <input type="text"
+															ng-model="fields.logMonitoring" placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Infrastructure Monitoring: </strong> <input
+															ng-model="fields.infrastructureMonitoring" type="text"
+															placeholder="N/A"
+															style="color: black; text-align: center;"></input>
+													</h4>
+													<h4>
+														<strong>Application Monitoring: </strong> <input
+															type="text" ng-model="fields.applicationMonitoring" placeholder="N/A"
+															style="color: black; text-align: center;" ></input>
+													</h4>
+
+													<button type="submit" class="btn btn-block btn-info"
+														style="width: 70%" ng-disabled="myAddProjectForm.$invalid"> 
+														Add Project<i class="glyphicon glyphicon-log-in"></i>
+													</button>
+												</center>
 											</div>
 										</div>
 
@@ -398,8 +411,8 @@
 								<div class="panel-body">
 
 									<h3>Please Select the Project:</h3>
-									<form method="post" name="startTestForm">
-										<div class="styled-selected" id="dropdown">
+
+									<!-- <div class="styled-selected" id="dropdown">
 											<select ng-model="selectedName.name"
 												ng-options="x.name  for x in projectNames"
 												ng-click="projectDetailsFunction(selectedName.name)"
@@ -420,23 +433,68 @@
 										<h4>Dev Team Size: {{selectedProjectDetails.devTeamSize}}</h4>
 										<br />
 										<h4>QA Team Size: {{selectedProjectDetails.qaTeamSize}}</h4>
+										<span style="display: inline;">
 										<button type="submit" class="btn btn-block btn-info"
-											style="width: 100%" ng-disabled="selectedName.name.testId>0 || selectedName.name===undefined"
-											ng-click="startTestProjectId(selectedProjectDetails.projectId)">
+											 ng-disabled="selectedName.name.testId>0 || selectedName.name===undefined"
+											ng-click="startTestProjectId(selectedProjectDetails.projectId)"  style="width: 40%; float: left;">
 											Start Test<i class="glyphicon glyphicon-log-in"></i>
 										</button>
 										<button type="submit" class="btn btn-block btn-info"
-											style="width: 100%" ng-disabled="selectedName.name.testId===0 ||selectedName.name===undefined"
-											ng-click="modifyTestProjectId(selectedProjectDetails.projectId)">
+											 ng-disabled="selectedName.name.testId===0 ||selectedName.name===undefined"
+											ng-click="modifyTestProjectId(selectedProjectDetails.projectId)" style="width: 40%; float: right;">
 											Modify<i class="glyphicon glyphicon-log-in"></i>
 										</button>
-										<!--  <div class="col-xs-6 col-xs-offset-3">
+										</span>
+										 <div class="col-xs-6 col-xs-offset-3">
+                                             
+                                             
+                                             
+                                             
                                                                                                        <a ui-sref="form.profile" class="btn btn-block btn-info">
                                                                                                               Start Test <span
                                                                                                               class="glyphicon glyphicon-circle-arrow-right"></span>
                                                                                                        </a>
                                                                                                 </div> -->
-									</form>
+			
+			
+			
+			<table  class="table table-striped">
+	<thead>
+	<tr>
+		 <h2><th>Project Name</th>
+				        <th>Start Assessment</th>
+				        <th>Modify Assessment</th>
+				         <th>Project Info</th>
+	</h2>
+	</tr>
+	</thead>
+	<tbody>
+	<tr ng-repeat="row in projectNames">
+		<td>{{row.name}}</td>
+		 <td>	<button type="submit" class="btn btn-success"
+											 ng-disabled="row.testId>0 || row.name===undefined"
+											 
+											ng-click="startTestProjectId(row.projectId)"  style="width: 50%; ">
+											Start<i class="glyphicon glyphicon-log-in"></i>
+										</button>
+						</td>
+						
+						 <td>	<button type="submit" class="btn btn-block btn-info"
+											 ng-disabled="row.testId===0 ||row.name===undefined"
+											 
+											ng-click="modifyTestProjectId(row.projectId)" style="width: 50%; ">
+											Modify<i class="glyphicon glyphicon-log-in"></i>
+										</button>
+						</td>
+						
+					
+						
+						<td><button type="button" class="btn btn-warning" ng-click="projectInfoMethod(row.projectId)">Project Info</button></td>
+				     
+			
+	</tr>
+	</tbody>
+</table>
 								</div>
 							</div>
 						</div>
@@ -445,3 +503,5 @@
 				</div>
 			</div>
 		</div>
+	</div>
+</div>

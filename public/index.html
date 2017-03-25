@@ -1,42 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+<meta charset="utf-8">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/darkly/bootstrap.min.css">
-    <link rel="stylesheet" href="assessmentStyle.css">
-    <title> Devops Assessment</title>
-    <!-- JS -->
-    <!-- load angular, nganimate, and ui-router -->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-animate.min.js"></script>
-      
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-  	<script src="AF.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="/assets/css/assessmentStyle.css">
+<link rel="stylesheet" href="/assets/css/style.css">
+<title>Devops Assessment</title>
+<!-- JS -->
+<!-- load angular, nganimate, and ui-router -->
+<script src="/assets/js/angular.min.js"></script>
+<script src="/assets/js/angular-ui-router.min.js"></script>
+<script src="/assets/js/angular-animate.min.js"></script>
+<script src="/assets/js/ng-storage.min.js"></script>
 
-    <script src="assessment.js"></script>
-    
-    
-    
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+<script src="/assets/js/AF.js"></script>
+
+<script src="/assets/js/assessment.js"></script>
+
+<script type="text/javascript">
+	window.history.forward();
+	function noBack() {
+		window.history.forward();
+	}
+</script>
+
+
 </head>
-<body ng-app="formApp">
+<body ng-app="formApp" oncontextmenu="return false;" onload="noBack();"
+	onpageshow="if (event.persisted) noBack();" onunload>
 
-<!-- views will be injected here -->
-<div class="container">
-    <div ui-view></div>
-</div>
+	<!-- views will be injected here -->
+	<div class="container application-container">
+		<div ng-controller="authController" class="navbar-wrapper"
+			ng-if="isLoggedIn">
+			<div class="container-fluid">
+				<nav class="navbar navbar-fixed-top">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed"
+								data-toggle="collapse" data-target="#navbar"
+								aria-expanded="false" aria-controls="navbar">
+								<span class="sr-only">Toggle navigation</span> <span
+									class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a class="navbar-brand nav-logo" ui-sref="projectDetails"><img
+								src="/assets/img/logo-96x96.png" alt="logo" class="img-rounded"></a>
+						</div>
+						<div id="navbar" class="navbar-collapse collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a ui-sref="projectDetails" class="">Dashboard</a></li>
+							</ul>
+							<ul class="nav navbar-nav pull-right">
+								<li class=" dropdown"><a href="#"
+									class="dropdown-toggle active" data-toggle="dropdown"
+									role="button" aria-haspopup="true" aria-expanded="false">Signed
+										in as {{projectDetails.Client_name}} </a>
+								<li class=""><a href="javascript:void(0);"
+									ng-click="logout()">Logout</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+		<div class="sub-views" ui-view></div>
+	</div>
+	<div class="footer-container">
+		<div class="footer">
+			<p class="fleft">
+				Copyright 2017. <a ui-sref="login" class="standard-link">DevOps
+					Assessment</a>. All rights reserved. <br class="hide"> <a
+					ui-sref="TermsOfUse" class="standard-link">Terms of use</a> <span>|</span>
 
-<div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
- <!--    <div class="jumbotron text-muted text-center">
-        
-    </div> -->
-    </div>
-</div>
+				<a ui-sref="PrivacyPolicy" class="standard-link">Privacy Policy</a>
+			</p>
+			<div class="fright footerLogoContainer">
+				<a ui-sref="login" class="standard-link"><img
+					src="/assets/img/logo.svg" alt="footer-logo" class="footer-logo"></a>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

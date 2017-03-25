@@ -109,9 +109,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					<form>
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}"  ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox" 
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}"  ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 																					</form>
 																				</div>
@@ -139,9 +139,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox"
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 
 																					</form>
@@ -166,9 +166,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					<form>
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox"
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 
 																					</form>
@@ -194,9 +194,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					<form>
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox" 
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 
 																					</form>
@@ -222,9 +222,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					<form>
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox"
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 
 																					</form>
@@ -261,9 +261,9 @@
                                                 <div id="{{'demo'+$index}}" class="collapse"> -->
 																					<form>
 																						<div class="checkbox">
-																							<label><input type="checkbox" ng-checked="question.checked==true"
-																								ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name,question.id)"
-																								value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																							<label><input type="checkbox"
+																								ng-change="myscore(question.name,isChecked[question.id],commentName[subcategory.name],subcategory.name,question.id)"
+																								value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																						</div>
 
 																					</form>
@@ -366,7 +366,7 @@
 																<form>
 																	<div class="checkbox">
 																		<label><input type="checkbox"
-																			ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name)"  value="{{question.score}}" ng-model="isChecked">{{question.name}}</label>
+																			ng-change="myscore(question.name,isChecked,commentName[subcategory.name],subcategory.name)"  value="{{question.score}}" ng-model="isChecked[question.id]">{{question.name}}</label>
 																	</div>
 
 																</form>
@@ -399,7 +399,7 @@
 		</div>
 
 <div class="col-xs-6 col-xs-offset-3">
-    <a ui-sref="form.microservices" class="btn btn-block btn-info">
+    <a ui-sref="form.microservices" class="btn btn-block btn-publicis">
     Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
     </a>
 </div>
