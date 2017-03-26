@@ -7,10 +7,10 @@ node ("master") {
 	   // echo "Code Deployed"
 		//puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
 		
-		mail (to: 'pbansal13@sapient.com',
-        subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully Deployed ON PROD",
-        body: "Please go to ${env.BUILD_URL}.");  
-		echo "email sent"
+		//mail (to: 'pbansal13@sapient.com',
+        //subject: "Job '${env.JOB_NAME}' (${env.BUILD_NUMBER}) has been successfully Deployed ON PROD",
+        //body: "Please go to ${env.BUILD_URL}.");  
+		//echo "email sent"
 		
 		sh "ssh root@del2vmpldevop03.sapient.com"
 		echo "ssh to server "
