@@ -12,8 +12,9 @@ node ("master") {
         //body: "Please go to ${env.BUILD_URL}.");  
 		//echo "email sent"
 		
-		sh "ssh root@del2vmpldevop03.sapient.com"
-		echo "ssh to server "
+		sh "cd /etc/puppetlabs/puppet"
+		echo "changed directory"
+		sh "puppet agent -t"
 	   
 
 	}
