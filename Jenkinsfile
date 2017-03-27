@@ -1,10 +1,10 @@
 node ("master") {
 	
-       // stage 'Deploy to PROD'
-       // puppet.credentials 'secret'
-	   // echo "connection is made with puppet"
-	   // puppet.codeDeploy 'production' 
-	   // echo "Code Deployed"
+         stage 'Deploy to PROD'
+         puppet.credentials 'secret'
+	     echo "connection is made with puppet"
+	     puppet.codeDeploy 'production' 
+	     echo "Code Deployed"
 		//puppet.job 'production', nodes: ['del2vmpldevop03.sapient.com']
 		
 		//mail (to: 'pbansal13@sapient.com',
@@ -12,9 +12,7 @@ node ("master") {
         //body: "Please go to ${env.BUILD_URL}.");  
 		//echo "email sent"
 		
-		sh "cd /etc/puppetlabs/puppet"
-		echo "changed directory"
-		sh "puppet agent -t"
+	
 	   
 
 	}
